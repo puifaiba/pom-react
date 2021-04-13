@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 // import "./Timer.css"
 import Break from "./Break"
 import Focus from "./Focus"
@@ -10,6 +10,7 @@ const Timer = () => {
   const [focusDuration, setFocusDuration] = useState(1500)
   const [breakDuration, setBreakDuration] = useState(300)
   const [remainingTime, setRemainingTime] = useState(focusDuration)
+  const audioElement = useRef(null)
 
   useEffect(() => {
     setRemainingTime(focusDuration)
@@ -50,6 +51,7 @@ const Timer = () => {
     setFocusDuration(1500)
     setBreakDuration(300)
     setRemainingTime(1500)
+    audioElement.current.load()
   }
 
   const isStarted = intervalId !== null
@@ -65,6 +67,7 @@ const Timer = () => {
           if (newRemainingTime >= 0) {
             return prevRemainingTime - 1
           }
+          audioElement.current.play()
           if (currentIntervalType === "Focus") {
             setCurrentIntervalType("Break")
             setRemainingTime(breakDuration)
@@ -75,7 +78,7 @@ const Timer = () => {
             return prevRemainingTime
           }
         })
-      }, 1000)
+      }, 100)
       setIntervalId(newIntervalId)
     }
   }
@@ -94,8 +97,6 @@ const Timer = () => {
         incrementBreakDurationByOneMinute={incrementBreakDurationByOneMinute}
       />
       <RemainingTime
-        focusDuration={focusDuration}
-        breakDuration={breakDuration}
         timerLabel={currentIntervalType}
         handleStartStopClick={handleStartStopClick}
         startStopButtonLabel={isStarted ? "STOP" : "START"}
@@ -104,6 +105,12 @@ const Timer = () => {
       <button className="reset-button" onClick={handleResetButtonClick}>
         RESET
       </button>
+      <audio id="bark" ref={audioElement}>
+        <source
+          src="https://onlineclock.net/audio/options/dog-barking.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
     </div>
   )
 }
