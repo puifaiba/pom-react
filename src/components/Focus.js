@@ -6,7 +6,7 @@ const Focus = ({
   decrementFocusDurationByOneMinute,
   incrementFocusDurationByOneMinute,
 }) => {
-  const focusDurationInMinutes = moment.duration(focusDuration, "s").minutes()
+  const focusDurationInMinutes = moment.duration(focusDuration, "s").asMinutes()
   return (
     <div className="focus-container">
       <p className="focus-label">FOCUS TIMER</p>

@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useRef} from "react"
 // import "./Timer.css"
-import Break from "./Break"
-import Focus from "./Focus"
-import RemainingTime from "./RemainingTime"
+import Break from "../components/Break"
+import Focus from "../components/Focus"
+import TaskList from "./TaskList"
+import RemainingTime from "../components/RemainingTime"
 
 const Timer = () => {
   const [currentIntervalType, setCurrentIntervalType] = useState("Focus")
@@ -18,30 +19,30 @@ const Timer = () => {
 
   const decrementBreakDurationByOneMinute = () => {
     const newBreakDuration = breakDuration - 60
-
-    if (newBreakDuration < 0) {
-      setBreakDuration(0)
-    } else {
+    if (newBreakDuration > 0) {
       setBreakDuration(newBreakDuration)
     }
   }
 
   const incrementBreakDurationByOneMinute = () => {
-    setBreakDuration(breakDuration + 60)
+    const newBreakDuration = breakDuration + 60
+    if (newBreakDuration <= 3600) {
+      setBreakDuration(breakDuration + 60)
+    }
   }
 
   const decrementFocusDurationByOneMinute = () => {
     const newFocusDuration = focusDuration - 60
-
-    if (newFocusDuration < 0) {
-      setFocusDuration(0)
-    } else {
+    if (newFocusDuration > 0) {
       setFocusDuration(newFocusDuration)
     }
   }
 
   const incrementFocusDurationByOneMinute = () => {
-    setFocusDuration(focusDuration + 60)
+    const newFocusDuration = focusDuration + 60
+    if (newFocusDuration <= 3600) {
+      setFocusDuration(focusDuration + 60)
+    }
   }
 
   const handleResetButtonClick = () => {
@@ -78,7 +79,7 @@ const Timer = () => {
             return prevRemainingTime
           }
         })
-      }, 100)
+      }, 1000)
       setIntervalId(newIntervalId)
     }
   }
@@ -111,6 +112,7 @@ const Timer = () => {
           type="audio/mpeg"
         />
       </audio>
+      {/* <TaskList /> */}
     </div>
   )
 }
