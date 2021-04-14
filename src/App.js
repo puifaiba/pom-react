@@ -10,6 +10,7 @@ import Header from "./components/Header"
 import Navbar from "./containers/Navbar"
 import Timer from "./containers/Timer"
 import ChatList from "./containers/ChatList"
+import Stats from "./containers/Stats"
 
 const LOGGED_IN_URL = "http://localhost:3001/logged_in"
 
@@ -58,6 +59,7 @@ class App extends Component {
         <Navbar
           loggedInStatus={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
+          user={this.state.user}
         />
         <Switch>
           <Route
@@ -105,6 +107,17 @@ class App extends Component {
             path="/chats"
             render={(props) => (
               <ChatList
+                {...props}
+                loggedInStatus={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/stats"
+            render={(props) => (
+              <Stats
                 {...props}
                 loggedInStatus={this.state.isLoggedIn}
                 user={this.state.user}
