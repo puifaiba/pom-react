@@ -1,10 +1,19 @@
-import React from "react"
+import React, {Fragment} from "react"
+import {ActionCable} from "react-actioncable-provider"
 
-function Cable() {
+const Cable = ({chats, handleReceivedMessage}) => {
   return (
-    <div className="cable">
-      <h1>CABLE</h1>
-    </div>
+    <>
+      {chats.map((chat) => {
+        return (
+          <ActionCable
+            key={chat.id}
+            channel={{channel: "MessagesChannel", chat: chat.id}}
+            onReceived={handleReceivedMessage}
+          />
+        )
+      })}
+    </>
   )
 }
 

@@ -5,7 +5,7 @@ function Stats(props) {
     <div className="stats-container">
       <h1>STATS PAGE</h1>
       <p>
-        {props.user.first_name} {props.user.last_name}
+        {props.user.first_name} {props.user.last_name}'s progress
       </p>
       <p>POMs completed</p>
     </div>

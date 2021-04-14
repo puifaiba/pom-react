@@ -2,14 +2,22 @@ import React, {Component} from "react"
 // import axios from "axios"
 import {API_ROOT} from "../constants/index"
 
-class NewChatForm extends Component {
+class NewMessageForm extends Component {
   state = {
-    name: "",
+    content: "",
+    chat_id: this.props.chat_id,
+    user_id: this.props.user_id,
+  }
+
+  componentDidUpdate = (nextProps) => {
+    if (this.props.chat_id !== nextProps.chat_id) {
+      this.setState({chat_id: nextProps.chat_id})
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`${API_ROOT}/chats`, {
+    fetch(`${API_ROOT}/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,23 +25,23 @@ class NewChatForm extends Component {
       },
       body: JSON.stringify(this.state),
     })
-    this.setState({title: ""})
+    this.setState({content: ""})
   }
 
   handleChange = (e) => {
-    this.setState({name: e.target.value})
+    this.setState({content: e.target.value})
   }
 
   render() {
     return (
-      <div className="new-chat-form">
+      <div className="new-message-form">
         <form onSubmit={this.handleSubmit}>
-          <label>New Chat:</label>
+          <label>New Message:</label>
           <br />
           <input
-            placeholder="enter name"
+            placeholder="enter text"
             type="text"
-            value={this.state.title}
+            value={this.state.content}
             onChange={this.handleChange}
           />
           <input type="submit" value="submit" />
@@ -43,4 +51,4 @@ class NewChatForm extends Component {
   }
 }
 
-export default NewChatForm
+export default NewMessageForm

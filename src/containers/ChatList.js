@@ -57,7 +57,10 @@ class ChatList extends Component {
         <ul>{mapChats(chats, this.handleClick)}</ul>
         <NewChatForm />
         {activeChat ? (
-          <MessagesContainer chat={findActiveChat(chats, activeChat)} />
+          <MessagesContainer
+            chat={findActiveChat(chats, activeChat)}
+            user={this.props.user}
+          />
         ) : null}
       </div>
     )
