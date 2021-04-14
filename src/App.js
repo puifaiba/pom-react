@@ -9,6 +9,7 @@ import Signup from "./components/Signup"
 import Header from "./components/Header"
 import Navbar from "./containers/Navbar"
 import Timer from "./containers/Timer"
+import ChatList from "./containers/ChatList"
 
 const LOGGED_IN_URL = "http://localhost:3001/logged_in"
 
@@ -88,8 +89,28 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/timer" component={Timer} />
-          {/* <Route exact path="/logout" component={LogOut} /> */}
+          <Route
+            exact
+            path="/timer"
+            render={(props) => (
+              <Timer
+                {...props}
+                loggedInStatus={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/chats"
+            render={(props) => (
+              <ChatList
+                {...props}
+                loggedInStatus={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+            )}
+          />
         </Switch>
       </div>
     )

@@ -2,10 +2,10 @@ import React, {useState, useEffect, useRef} from "react"
 // import "./Timer.css"
 import Break from "../components/Break"
 import Focus from "../components/Focus"
-import TaskList from "./TaskList"
+// import TaskList from "./TaskList"
 import RemainingTime from "../components/RemainingTime"
 
-const Timer = () => {
+const Timer = (props) => {
   const [currentIntervalType, setCurrentIntervalType] = useState("Focus")
   const [intervalId, setIntervalId] = useState(null)
   const [focusDuration, setFocusDuration] = useState(1500)
@@ -85,34 +85,48 @@ const Timer = () => {
   }
 
   return (
-    <div className="timer-container">
-      <span>TIMER</span>
-      <Focus
-        focusDuration={focusDuration}
-        decrementFocusDurationByOneMinute={decrementFocusDurationByOneMinute}
-        incrementFocusDurationByOneMinute={incrementFocusDurationByOneMinute}
-      />
-      <Break
-        breakDuration={breakDuration}
-        decrementBreakDurationByOneMinute={decrementBreakDurationByOneMinute}
-        incrementBreakDurationByOneMinute={incrementBreakDurationByOneMinute}
-      />
-      <RemainingTime
-        timerLabel={currentIntervalType}
-        handleStartStopClick={handleStartStopClick}
-        startStopButtonLabel={isStarted ? "STOP" : "START"}
-        remainingTime={remainingTime}
-      />
-      <button className="reset-button" onClick={handleResetButtonClick}>
-        RESET
-      </button>
-      <audio id="bark" ref={audioElement}>
-        <source
-          src="https://onlineclock.net/audio/options/dog-barking.mp3"
-          type="audio/mpeg"
-        />
-      </audio>
-      {/* <TaskList /> */}
+    <div>
+      {props.loggedInStatus ? (
+        <div>
+          <div className="timer-container">
+            <span>TIMER</span>
+            <Focus
+              focusDuration={focusDuration}
+              decrementFocusDurationByOneMinute={
+                decrementFocusDurationByOneMinute
+              }
+              incrementFocusDurationByOneMinute={
+                incrementFocusDurationByOneMinute
+              }
+            />
+            <Break
+              breakDuration={breakDuration}
+              decrementBreakDurationByOneMinute={
+                decrementBreakDurationByOneMinute
+              }
+              incrementBreakDurationByOneMinute={
+                incrementBreakDurationByOneMinute
+              }
+            />
+            <RemainingTime
+              timerLabel={currentIntervalType}
+              handleStartStopClick={handleStartStopClick}
+              startStopButtonLabel={isStarted ? "STOP" : "START"}
+              remainingTime={remainingTime}
+            />
+            <button className="reset-button" onClick={handleResetButtonClick}>
+              RESET
+            </button>
+            <audio id="bark" ref={audioElement}>
+              <source
+                src="https://onlineclock.net/audio/options/dog-barking.mp3"
+                type="audio/mpeg"
+              />
+            </audio>
+            {/* <TaskList /> */}
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }
