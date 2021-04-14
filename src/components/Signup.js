@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import axios from "axios"
-import {Link} from "react-router-dom"
+
+const USERS_URL = "http://localhost:3001/users"
 
 class Signup extends Component {
   state = {
@@ -21,6 +22,51 @@ class Signup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const {
+      email,
+      password,
+      password_confirmation,
+      first_name,
+      last_name,
+    } = this.state
+
+    let user = {
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+      first_name: first_name,
+      last_name: last_name,
+    }
+
+    axios
+      .post(USERS_URL, {user}, {withCredentials: true})
+      .then((res) => {
+        if (res.data.status === "created") {
+          this.props.handleLogin(res.data)
+          this.redirect()
+        } else {
+          this.setState({
+            errors: res.data.errors,
+          })
+        }
+      })
+      .catch((error) => console.log("api errors:", error))
+  }
+
+  redirect = () => {
+    this.props.history.push("/")
+  }
+
+  handleErrors = () => {
+    return (
+      <div>
+        <ul>
+          {this.state.errors.map((error) => {
+            return <li key={error}>{error}</li>
+          })}
+        </ul>
+      </div>
+    )
   }
 
   render() {
@@ -75,6 +121,7 @@ class Signup extends Component {
             Sign Up
           </button>
         </form>
+        <div>{this.state.errors ? this.handleErrors : null}</div>
       </div>
     )
   }
