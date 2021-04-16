@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import axios from "axios"
-import {ActionCable, ActionCableProvider} from "react-actioncable-provider"
+import {ActionCableConsumer} from "react-actioncable-provider"
 
 import {API_ROOT} from "../constants/index"
 import NewChatForm from "../components/NewChatForm"
@@ -43,7 +43,7 @@ class ChatList extends Component {
     const {chats, activeChat} = this.state
     return (
       <div className="chatlist-container">
-        <ActionCable
+        <ActionCableConsumer
           channel={{channel: "ChatsChannel"}}
           onReceived={this.handleReceivedChat}
         />

@@ -4,7 +4,7 @@ import NewMessageForm from "./NewMessageForm"
 const MessagesContainer = ({chat: {id, name, messages}}) => {
   return (
     <div className="messages-container">
-      <h1>{name}</h1>
+      <h2>{name}</h2>
       <ul>{orderedMessages(messages)}</ul>
       <NewMessageForm chat_id={id} />
     </div>

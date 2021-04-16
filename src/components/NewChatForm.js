@@ -17,7 +17,7 @@ class NewChatForm extends Component {
       },
       body: JSON.stringify(this.state),
     })
-    this.setState({title: ""})
+    this.setState({name: ""})
   }
 
   handleChange = (e) => {

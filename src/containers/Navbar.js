@@ -19,6 +19,7 @@ const Navbar = (props) => {
     <div>
       {props.loggedInStatus ? (
         <div>
+          <Link to="/projects">Projects</Link>
           <Link to="/timer">Timer</Link>
           <Link to="/chats">Messages</Link>
           <Link to="/stats">Stats</Link>

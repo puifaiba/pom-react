@@ -4,6 +4,7 @@ import Break from "../components/Break"
 import Focus from "../components/Focus"
 // import TaskList from "./TaskList"
 import RemainingTime from "../components/RemainingTime"
+import Board from "./Board"
 
 const Timer = (props) => {
   const [currentIntervalType, setCurrentIntervalType] = useState("Focus")

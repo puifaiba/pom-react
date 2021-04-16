@@ -11,6 +11,7 @@ import Navbar from "./containers/Navbar"
 import Timer from "./containers/Timer"
 import ChatList from "./containers/ChatList"
 import Stats from "./containers/Stats"
+import Project from "./containers/Project"
 
 const LOGGED_IN_URL = "http://localhost:3001/logged_in"
 
@@ -118,6 +119,17 @@ class App extends Component {
             path="/stats"
             render={(props) => (
               <Stats
+                {...props}
+                loggedInStatus={this.state.isLoggedIn}
+                user={this.state.user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/projects"
+            render={(props) => (
+              <Project
                 {...props}
                 loggedInStatus={this.state.isLoggedIn}
                 user={this.state.user}
