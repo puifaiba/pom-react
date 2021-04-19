@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import styled from "styled-components"
 import {Draggable} from "react-beautiful-dnd"
+// import axios from "axios"
+// import {API_ROOT} from "../constants/index"
 
 const Container = styled.div`
   border: 1px solid blue;
@@ -27,9 +29,9 @@ class Task extends Component {
           >
             {this.props.task.title}
             <div>
-              <button onClick={this.props.handleUpdate} type="submit">
+              {/* <button onClick={this.props.handleUpdate} type="submit">
                 Edit
-              </button>
+              </button> */}
               <button
                 onClick={this.props.handleDelete.bind(this, this.props.task)}
                 type="submit"

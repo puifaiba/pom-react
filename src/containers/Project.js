@@ -92,10 +92,13 @@ class Project extends Component {
     this.setState(newState)
   }
 
-  // handleAddTask = (task, event) => {
-  //   event.preventDefault()
-  //   this.setState({tasks: [...this.state.tasks], task})
-  // }
+  addTask = (task) => {
+    axios.post(`${API_ROOT}/tasks/`, {task}).then((res) => console.log(res))
+
+    this.setState((prevState) => ({
+      tasks: [...prevState.tasks, task],
+    }))
+  }
 
   handleUpdate = (event) => {
     console.log(event)
@@ -107,11 +110,20 @@ class Project extends Component {
       console.log(res.data)
     })
     const newTasks = this.state.tasks.filter((item) => item.id !== task.id)
-    // this.setState({tasks: newTasks})
-    this.setState((prevState) => ({
-      tasks: [...prevState.tasks, newTasks],
-    }))
+    this.setState({tasks: newTasks}, () => console.log(this.state.tasks))
   }
+
+  // handleStateChange = (value) => {
+  //   let tasks = this.state.tasks
+  //   tasks.push(value)
+  //   this.setState({tasks: tasks})
+  // }
+
+  // componentDidUpdate(prevState) {
+  //   if (prevState.tasks !== this.state.tasks) {
+  //     this.setState({tasks: this.state.tasks})
+  //   }
+  // }
 
   render() {
     return (
@@ -124,7 +136,8 @@ class Project extends Component {
               tasks={column.tasks}
               handleDelete={this.handleDelete}
               handleUpdate={this.handleUpdate}
-              // handleAddTask={this.handleAddTask}
+              addTask={this.addTask}
+              user={this.props.user}
             />
           ))}
           {/* {this.state.columnOrder.map((columnId) => {

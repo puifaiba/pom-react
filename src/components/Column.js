@@ -30,6 +30,10 @@ const TaskList = styled.div`
 `
 
 class Column extends Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.tasks !== nextProps.tasks
+  }
+
   render() {
     return (
       <Container>
@@ -51,7 +55,11 @@ class Column extends Component {
                 />
               ))}
               {provided.placeholder}
-              <NewTaskForm handleAddTask={this.props.handleAddTask} />
+              <NewTaskForm
+                addTask={this.props.addTask}
+                user={this.props.user}
+                column={this.props.column}
+              />
             </TaskList>
           )}
         </Droppable>

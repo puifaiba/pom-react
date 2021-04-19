@@ -7,7 +7,18 @@ class NewTaskForm extends Component {
 
   handleAddTask = (event) => {
     event.preventDefault()
+    const newTask = {
+      column_id: this.props.column,
+      date: new Date(),
+      tag: "work",
+      title: this.state.userInput,
+      user_id: this.props.user,
+    }
+    this.props.addTask(newTask)
+    // this.props.addTask(this.state.userInput)
+    this.setState({userInput: ""})
   }
+
   render() {
     return (
       <form onSubmit={(event) => this.handleAddTask(event)}>
