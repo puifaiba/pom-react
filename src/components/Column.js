@@ -30,9 +30,15 @@ const TaskList = styled.div`
 `
 
 class Column extends Component {
-  shouldComponentUpdate(nextProps) {
-    return this.props.tasks !== nextProps.tasks
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return this.props.tasks !== nextProps.tasks
+  // }
+
+  // componentDidUpdate(prevProps, nextProps) {
+  //   if (prevProps.tasks !== this.props.tasks) {
+  //     this.setState({tasks: this.props.tasks})
+  //   }
+  // }
 
   render() {
     return (
@@ -45,15 +51,17 @@ class Column extends Component {
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
             >
-              {this.props.tasks.map((task, index) => (
-                <Task
-                  key={task.id}
-                  task={task}
-                  index={index}
-                  handleDelete={this.props.handleDelete}
-                  handleUpdate={this.props.handleUpdate}
-                />
-              ))}
+              {this.props.tasks.map((task, index) => {
+                return (
+                  <Task
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleDelete={this.props.handleDelete}
+                    handleUpdate={this.props.handleUpdate}
+                  />
+                )
+              })}
               {provided.placeholder}
               <NewTaskForm
                 addTask={this.props.addTask}

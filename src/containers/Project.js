@@ -109,8 +109,18 @@ class Project extends Component {
     axios.delete(`${API_ROOT}/tasks/${task.id}`).then((res) => {
       console.log(res.data)
     })
-    const newTasks = this.state.tasks.filter((item) => item.id !== task.id)
-    this.setState({tasks: newTasks}, () => console.log(this.state.tasks))
+    const newTasks = [...this.state.columns].map((column) => {
+      if (column.tasks.includes(task)) {
+        return {
+          ...column,
+          tasks: column.tasks.filter((item) => item.id !== task.id),
+        }
+      }
+      return {...column, tasks: column.tasks}
+    })
+    this.setState((prevState) => {
+      return {columns: newTasks}
+    })
   }
 
   // handleStateChange = (value) => {
@@ -129,17 +139,19 @@ class Project extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Container>
-          {this.state.columns.map((column) => (
-            <Column
-              key={column.id}
-              column={column}
-              tasks={column.tasks}
-              handleDelete={this.handleDelete}
-              handleUpdate={this.handleUpdate}
-              addTask={this.addTask}
-              user={this.props.user}
-            />
-          ))}
+          {this.state.columns.map((column) => {
+            return (
+              <Column
+                key={column.id}
+                column={column}
+                tasks={column.tasks}
+                handleDelete={this.handleDelete}
+                handleUpdate={this.handleUpdate}
+                addTask={this.addTask}
+                user={this.props.user}
+              />
+            )
+          })}
           {/* {this.state.columnOrder.map((columnId) => {
             const column = this.state.columns[columnId]
             const tasks = column.tasks.id.map(
