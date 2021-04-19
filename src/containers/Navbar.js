@@ -16,18 +16,27 @@ const Navbar = (props) => {
   }
 
   return (
-    <div>
+    <div className="navbar">
       {props.loggedInStatus ? (
         <div>
-          <Link to="/projects">Projects</Link>
-          <Link to="/timer">Timer</Link>
-          <Link to="/chats">Messages</Link>
-          <Link to="/stats">Stats</Link>
-          <Link to="/logout" onClick={handleLogOutClick}>
+          <Link to="/tasks" className="link">
+            Tasks
+          </Link>
+          <Link to="/timer" className="link">
+            Timer
+          </Link>
+          <Link to="/stats" className="link">
+            Stats
+          </Link>
+          <Link to="/chats" className="link">
+            Messages
+          </Link>
+          <span className="greeting">
+            Hi, {props.user.first_name}. Let's get focused!
+          </span>
+          <Link to="/logout" onClick={handleLogOutClick} className="link">
             Log Out
           </Link>
-          <h2>Hi, {props.user.first_name}</h2>
-          <h3>Let's get focused!</h3>
         </div>
       ) : null}
     </div>

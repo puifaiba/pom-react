@@ -127,7 +127,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/projects"
+            path="/tasks"
             render={(props) => (
               <Project
                 {...props}

@@ -90,7 +90,7 @@ const Timer = (props) => {
       {props.loggedInStatus ? (
         <div>
           <div className="timer-container">
-            <span>TIMER</span>
+            <div>TIMER</div>
             <Focus
               focusDuration={focusDuration}
               decrementFocusDurationByOneMinute={

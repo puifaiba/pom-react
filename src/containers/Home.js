@@ -4,9 +4,12 @@ import {Link} from "react-router-dom"
 const Home = () => {
   return (
     <div>
-      <Link to="/login">Log In</Link>
-      <br></br>
-      <Link to="/signup">Sign Up</Link>
+      <Link to="/login" className="home">
+        Log In
+      </Link>
+      <Link to="/signup" className="home">
+        Sign Up
+      </Link>
     </div>
   )
 }

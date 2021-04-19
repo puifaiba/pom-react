@@ -1,3 +1,54 @@
 .App {
   text-align: center;
+  background: rgb(4, 60, 110);
+  background: linear-gradient(
+    45deg,
+    rgba(4, 60, 110, 1) 0%,
+    rgba(98, 39, 131, 1) 45%,
+    rgba(102, 171, 140, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+  color: #fa7c92;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.home {
+  padding: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgba(102, 171, 140, 1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+  color: #fa7c92;
+}
+
+.navbar a {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgba(102, 171, 140, 1);
+}
+
+.greeting {
+  font-size: 20px;
+  margin: 0 2rem 0 45rem;
+}
+
+.link {
+  float: center;
 }

@@ -2,33 +2,39 @@ import React, {Component} from "react"
 import styled from "styled-components"
 import {Droppable} from "react-beautiful-dnd"
 import Task from "./Task"
+import NewTaskForm from "../components/NewTaskForm"
 
 const Container = styled.div`
-  margin: 8px;
+  margin: 10px;
   border: 1px solid blue;
-  border-radius: 2px;
-  width: 20rem;
+  border-radius: 5px;
+  width: 25rem;
   display: flex;
   flex-direction: column;
+  background-color: lightsteelblue;
 `
 const Title = styled.h3`
-  padding: 8px;
+  padding: 10px;
+  text-align: left;
+  margin: 10px;
 `
 const TaskList = styled.div`
   padding: 8px;
+  margin: 15px;
   transition: background-color 0.2s ease;
   background-color: ${(props) =>
-    props.isDraggingOver ? "royalblue" : "lightskyblue"};
+    props.isDraggingOver ? "royalblue" : "lightsteelblue"};
   flex-grow: 1;
-  min-height: 8rem;
+  min-height: 40rem;
+  border-radius: 5px;
 `
 
 class Column extends Component {
   render() {
     return (
       <Container>
-        <Title>{this.props.column.title}</Title>
-        <Droppable droppableId={this.props.column.id}>
+        <Title>{this.props.column.label}</Title>
+        <Droppable droppableId={toString(this.props.column.id)}>
           {(provided, snapshot) => (
             <TaskList
               ref={provided.innerRef}
@@ -36,9 +42,16 @@ class Column extends Component {
               isDraggingOver={snapshot.isDraggingOver}
             >
               {this.props.tasks.map((task, index) => (
-                <Task key={task.id} task={task} index={index} />
+                <Task
+                  key={task.id}
+                  task={task}
+                  index={index}
+                  handleDelete={this.props.handleDelete}
+                  handleUpdate={this.props.handleUpdate}
+                />
               ))}
               {provided.placeholder}
+              <NewTaskForm handleAddTask={this.props.handleAddTask} />
             </TaskList>
           )}
         </Droppable>

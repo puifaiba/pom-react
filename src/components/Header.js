@@ -1,11 +1,7 @@
 import React from "react"
 
 function Header() {
-  return (
-    <div className="header">
-      <h1>POM TIMER</h1>
-    </div>
-  )
+  return <div className="header">POM TIMER</div>
 }
 
 export default Header

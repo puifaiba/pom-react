@@ -8,13 +8,16 @@ const Container = styled.div`
   padding: 8px;
   margin-bottom: 8px;
   background-color: ${(props) =>
-    props.isDragging ? "dodgerblue" : "deepskyblue"};
+    props.isDragging ? "powderblue" : "lavender"};
 `
 
 class Task extends Component {
   render() {
     return (
-      <Draggable draggableId={this.props.task.id} index={this.props.index}>
+      <Draggable
+        draggableId={toString(this.props.task.id)}
+        index={this.props.index}
+      >
         {(provided, snapshot) => (
           <Container
             {...provided.draggableProps}
@@ -22,7 +25,19 @@ class Task extends Component {
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            {this.props.task.content}
+            {this.props.task.title}
+            <div>
+              <button onClick={this.props.handleUpdate} type="submit">
+                Edit
+              </button>
+              <button
+                onClick={this.props.handleDelete.bind(this, this.props.task)}
+                type="submit"
+                value="delete"
+              >
+                Delete
+              </button>
+            </div>
           </Container>
         )}
       </Draggable>

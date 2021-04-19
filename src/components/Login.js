@@ -43,7 +43,7 @@ class Login extends Component {
   }
 
   redirect = () => {
-    this.props.history.push("/timer")
+    this.props.history.push("/tasks")
   }
 
   handleErrors = () => {
@@ -79,11 +79,14 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit">
+          <button placeholder="submit" type="submit" className="link">
             Log In
           </button>
           <div>
-            or <Link to="/signup">Sign Up</Link>
+            or{" "}
+            <Link to="/signup" className="link">
+              Sign Up
+            </Link>
           </div>
         </form>
         <div>{this.state.errors ? this.handleErrors() : null}</div>

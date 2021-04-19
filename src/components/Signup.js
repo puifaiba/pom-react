@@ -54,7 +54,7 @@ class Signup extends Component {
   }
 
   redirect = () => {
-    this.props.history.push("/")
+    this.props.history.push("/tasks")
   }
 
   handleErrors = () => {
