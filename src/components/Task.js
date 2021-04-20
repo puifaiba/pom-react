@@ -1,8 +1,7 @@
 import React, {Component} from "react"
 import styled from "styled-components"
 import {Draggable} from "react-beautiful-dnd"
-// import axios from "axios"
-// import {API_ROOT} from "../constants/index"
+import Timer from "../containers/Timer"
 
 const Container = styled.div`
   border: 1px solid blue;
@@ -14,6 +13,14 @@ const Container = styled.div`
 `
 
 class Task extends Component {
+  state = {
+    show: false,
+  }
+
+  showTimer = (e) => {
+    this.setState({show: true})
+  }
+
   render() {
     return (
       <Draggable
@@ -28,6 +35,7 @@ class Task extends Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.title}
+            <Timer show={this.state.show} />
             <div>
               <button
                 onClick={this.props.handleUpdate.bind(this, this.props.task)}
@@ -42,6 +50,13 @@ class Task extends Component {
                 value="delete"
               >
                 Delete
+              </button>
+              <button
+                onClick={(e) => {
+                  this.showTimer()
+                }}
+              >
+                Timer
               </button>
             </div>
           </Container>

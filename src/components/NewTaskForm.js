@@ -35,6 +35,7 @@ class NewTaskForm extends Component {
   render() {
     return (
       <form onSubmit={(event) => this.handleAddTask(event)}>
+        <label>Title </label>
         <input
           placeholder="enter task"
           type="text"
@@ -42,6 +43,8 @@ class NewTaskForm extends Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
+        <br />
+        <label>Tag </label>
         <input
           placeholder="enter tag"
           type="text"
@@ -49,6 +52,8 @@ class NewTaskForm extends Component {
           value={this.state.tag}
           onChange={this.handleChange}
         />
+        <br />
+        <label>Due date </label>
         <DatePicker
           placeholderText="Select due date"
           name="date"

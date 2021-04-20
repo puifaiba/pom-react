@@ -2,13 +2,14 @@ import React, {Component} from "react"
 import "./App.css"
 import {Route, Switch, withRouter} from "react-router-dom"
 import axios from "axios"
+import "semantic-ui-css/semantic.min.css"
 
 import Home from "./containers/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Header from "./components/Header"
 import Navbar from "./containers/Navbar"
-import Timer from "./containers/Timer"
+// import Timer from "./containers/Timer"
 import ChatList from "./containers/ChatList"
 import Stats from "./containers/Stats"
 import Project from "./containers/Project"
@@ -92,7 +93,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
+          {/* <Route
             exact
             path="/timer"
             render={(props) => (
@@ -102,7 +103,7 @@ class App extends Component {
                 user={this.state.user}
               />
             )}
-          />
+          /> */}
           <Route
             exact
             path="/chats"

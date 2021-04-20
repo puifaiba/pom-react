@@ -115,6 +115,9 @@ class Project extends Component {
 
   handleUpdate = (task, event) => {
     event.preventDefault()
+    axios.put(`${API_ROOT}/tasks/${task.id}`, {task}).then((res) => {
+      console.log(res.data)
+    })
   }
 
   handleDelete = (task, event) => {
@@ -123,7 +126,7 @@ class Project extends Component {
       console.log(res.data)
     })
 
-    // iterates through each column to find
+    // iterates through each column to find the column with the task then filter out task
     const newColumns = [...this.state.columns].map((column) => {
       if (column.tasks.includes(task)) {
         return {

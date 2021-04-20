@@ -64,7 +64,11 @@ class Login extends Component {
     return (
       <div>
         <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit} className="form">
+        <form
+          onSubmit={this.handleSubmit}
+          className="form"
+          className="ui centered"
+        >
           <input
             placeholder="Enter email"
             type="text"
