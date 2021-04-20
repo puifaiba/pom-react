@@ -31,8 +31,12 @@ const Navbar = (props) => {
           <span className="greeting">
             Hi, {props.user.first_name}. Let's get focused!
           </span>
-          <Link to="/logout" onClick={handleLogOutClick} className="link">
-            Log Out
+          <Link
+            to="/logout"
+            onClick={handleLogOutClick}
+            className="link ui pink basic big icon button"
+          >
+            <i aria-hidden="true" class="sign-out alternate icon"></i>
           </Link>
         </div>
       ) : null}

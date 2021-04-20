@@ -37,7 +37,7 @@ class NewTaskForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="new-task-form">
         {this.props.newFormOpen ? (
           <form onSubmit={(event) => this.handleAddTask(event)}>
             <label>Title </label>
@@ -66,8 +66,12 @@ class NewTaskForm extends Component {
               selected={this.state.date}
               onChange={this.handleDateChange}
             />
-            <button type="submit" value="submit">
-              save
+            <button
+              type="submit"
+              value="submit"
+              class="ui violet basic icon button"
+            >
+              <i aria-hidden="true" class="save icon"></i>
             </button>
           </form>
         ) : null}

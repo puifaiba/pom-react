@@ -7,13 +7,13 @@ const Container = styled.div`
   border: 1px solid blue;
   border-radius: 2px;
   padding: 8px 12px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   background-color: ${(props) =>
     props.isDragging ? "powderblue" : "lavender"};
   text-align: left;
 `
 const TaskButtons = styled.div`
-  text-align: center;
+  text-align: right;
   padding: 8px;
 `
 
@@ -45,25 +45,28 @@ class Task extends Component {
                 onClick={this.props.handleUpdate.bind(this, this.props.task)}
                 type="submit"
                 value="update"
+                class="ui violet basic icon button"
               >
-                Edit
+                <i aria-hidden="true" class="pencil icon"></i>
               </button>
               <button
                 onClick={this.props.handleDelete.bind(this, this.props.task)}
                 type="submit"
                 value="delete"
+                class="ui violet basic icon button"
               >
-                Delete
+                <i aria-hidden="true" class="trash icon"></i>
               </button>
               <button
                 onClick={(e) => {
                   this.showTimer()
                 }}
+                class="ui violet basic icon button"
               >
-                Timer
+                <i aria-hidden="true" class="clock icon"></i>
               </button>
-              <Timer timerShown={this.state.timerShown} />
             </TaskButtons>
+            <Timer timerShown={this.state.timerShown} />
           </Container>
         )}
       </Draggable>

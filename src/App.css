@@ -8,7 +8,7 @@
     rgba(102, 171, 140, 1) 100%
   );
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   color: #fa7c92;
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
@@ -57,9 +57,6 @@ h6,
   text-decoration: none;
 }
 
-.form {
-}
-
 .greeting {
   font-size: 20px;
   margin: 0 2rem 0 45rem;
@@ -106,4 +103,8 @@ input[type="password"] {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 15px;
+}
+
+.new-task-form {
+  margin-top: 5px;
 }

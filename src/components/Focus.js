@@ -13,15 +13,15 @@ const Focus = ({
       <p className="focus-duration">{focusDurationInMinutes}</p>
       <button
         onClick={decrementFocusDurationByOneMinute}
-        className="focus-increment"
+        className="focus-increment ui teal basic icon button"
       >
-        -
+        <i aria-hidden="true" class="minus icon"></i>
       </button>
       <button
         onClick={incrementFocusDurationByOneMinute}
-        className="focus-increment"
+        className="focus-increment ui teal basic icon button"
       >
-        +
+        <i aria-hidden="true" class="plus icon"></i>
       </button>
     </div>
   )

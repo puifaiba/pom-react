@@ -14,15 +14,15 @@ const Break = ({
       <p className="break-duration">{breakDurationInMinutes}</p>
       <button
         onClick={decrementBreakDurationByOneMinute}
-        className="break-increment"
+        className="break-increment ui teal basic icon button"
       >
-        -
+        <i aria-hidden="true" class="minus icon"></i>
       </button>
       <button
         onClick={incrementBreakDurationByOneMinute}
-        className="break-increment"
+        className="break-increment ui teal basic icon button"
       >
-        +
+        <i aria-hidden="true" class="plus icon"></i>
       </button>
     </div>
   )

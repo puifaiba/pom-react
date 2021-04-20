@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react"
-// import "./Timer.css"
+import "./Timer.css"
 import Break from "../components/Break"
 import Focus from "../components/Focus"
 import RemainingTime from "../components/RemainingTime"
@@ -111,11 +111,20 @@ const Timer = (props) => {
             <RemainingTime
               timerLabel={currentIntervalType}
               handleStartStopClick={handleStartStopClick}
-              startStopButtonLabel={isStarted ? "STOP" : "START"}
+              startStopButtonLabel={
+                isStarted ? (
+                  <i aria-hidden="true" class="pause icon"></i>
+                ) : (
+                  <i aria-hidden="true" class="play icon"></i>
+                )
+              }
               remainingTime={remainingTime}
             />
-            <button className="reset-button" onClick={handleResetButtonClick}>
-              RESET
+            <button
+              className="reset-button ui teal basic icon button"
+              onClick={handleResetButtonClick}
+            >
+              <i aria-hidden="true" class="repeat icon"></i>
             </button>
             <audio id="bark" ref={audioElement}>
               <source

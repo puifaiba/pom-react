@@ -12,6 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: lightsteelblue;
+  text-align: right;
 `
 const Title = styled.h3`
   padding: 10px;
@@ -20,7 +21,7 @@ const Title = styled.h3`
 `
 const TaskList = styled.div`
   padding: 8px;
-  margin: 15px;
+  margin: 0 10px;
   transition: background-color 0.2s ease;
   background-color: ${(props) =>
     props.isDraggingOver ? "royalblue" : "lightsteelblue"};
@@ -65,8 +66,9 @@ class Column extends Component {
                 onClick={(e) => {
                   this.openNewTaskForm()
                 }}
+                class="ui violet basic icon button"
               >
-                Add Task
+                <i aria-hidden="true" class="plus icon"></i>
               </button>
               <NewTaskForm
                 addTask={this.props.addTask}
