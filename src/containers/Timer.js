@@ -3,7 +3,6 @@ import React, {useState, useEffect, useRef} from "react"
 import Break from "../components/Break"
 import Focus from "../components/Focus"
 import RemainingTime from "../components/RemainingTime"
-import Board from "./Board"
 
 const Timer = (props) => {
   const [currentIntervalType, setCurrentIntervalType] = useState("Focus")
@@ -123,7 +122,6 @@ const Timer = (props) => {
                 type="audio/mpeg"
               />
             </audio>
-            {/* <TaskList /> */}
           </div>
         </div>
       ) : null}

@@ -18,7 +18,7 @@ class Task extends Component {
   }
 
   showTimer = (e) => {
-    this.setState({show: true})
+    this.setState({show: !this.state.show})
   }
 
   render() {
@@ -35,7 +35,6 @@ class Task extends Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.title}
-            <Timer show={this.state.show} />
             <div>
               <button
                 onClick={this.props.handleUpdate.bind(this, this.props.task)}
@@ -58,6 +57,7 @@ class Task extends Component {
               >
                 Timer
               </button>
+              <Timer show={this.state.show} />
             </div>
           </Container>
         )}
