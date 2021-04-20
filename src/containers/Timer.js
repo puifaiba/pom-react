@@ -85,10 +85,9 @@ const Timer = (props) => {
 
   return (
     <div className="timer">
-      {props.show ? (
+      {props.timerShown ? (
         <div>
           <div className="timer-container">
-            <div>TIMER</div>
             <Focus
               focusDuration={focusDuration}
               decrementFocusDurationByOneMinute={
@@ -98,6 +97,7 @@ const Timer = (props) => {
                 incrementFocusDurationByOneMinute
               }
             />
+            <br />
             <Break
               breakDuration={breakDuration}
               decrementBreakDurationByOneMinute={
@@ -107,6 +107,7 @@ const Timer = (props) => {
                 incrementBreakDurationByOneMinute
               }
             />
+            <br />
             <RemainingTime
               timerLabel={currentIntervalType}
               handleStartStopClick={handleStartStopClick}

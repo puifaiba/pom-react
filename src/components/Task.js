@@ -6,19 +6,24 @@ import Timer from "../containers/Timer"
 const Container = styled.div`
   border: 1px solid blue;
   border-radius: 2px;
-  padding: 8px;
-  margin-bottom: 8px;
+  padding: 8px 12px;
+  margin-bottom: 5px;
   background-color: ${(props) =>
     props.isDragging ? "powderblue" : "lavender"};
+  text-align: left;
+`
+const TaskButtons = styled.div`
+  text-align: center;
+  padding: 8px;
 `
 
 class Task extends Component {
   state = {
-    show: false,
+    timerShown: false,
   }
 
   showTimer = (e) => {
-    this.setState({show: !this.state.show})
+    this.setState({timerShown: !this.state.timerShown})
   }
 
   render() {
@@ -35,7 +40,7 @@ class Task extends Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.title}
-            <div>
+            <TaskButtons>
               <button
                 onClick={this.props.handleUpdate.bind(this, this.props.task)}
                 type="submit"
@@ -57,8 +62,8 @@ class Task extends Component {
               >
                 Timer
               </button>
-              <Timer show={this.state.show} />
-            </div>
+              <Timer timerShown={this.state.timerShown} />
+            </TaskButtons>
           </Container>
         )}
       </Draggable>

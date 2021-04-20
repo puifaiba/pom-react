@@ -28,43 +28,50 @@ class NewTaskForm extends Component {
       title: this.state.title,
       user_id: this.props.user.id,
     }
-    this.props.addTask(newTask)
+    if (this.state.title !== "") {
+      this.props.addTask(newTask)
+    }
     this.setState({title: "", tag: "", date: new Date()})
+    this.props.onClick && this.props.onClick(event)
   }
 
   render() {
     return (
-      <form onSubmit={(event) => this.handleAddTask(event)}>
-        <label>Title </label>
-        <input
-          placeholder="enter task"
-          type="text"
-          name="title"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label>Tag </label>
-        <input
-          placeholder="enter tag"
-          type="text"
-          name="tag"
-          value={this.state.tag}
-          onChange={this.handleChange}
-        />
-        <br />
-        <label>Due date </label>
-        <DatePicker
-          placeholderText="Select due date"
-          name="date"
-          value={this.state.date}
-          selected={this.state.date}
-          onChange={this.handleDateChange}
-        />
-        <button type="submit" value="submit">
-          Add Task
-        </button>
-      </form>
+      <div>
+        {this.props.newFormOpen ? (
+          <form onSubmit={(event) => this.handleAddTask(event)}>
+            <label>Title </label>
+            <input
+              placeholder="enter task"
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+            />
+            <br />
+            <label>Tag </label>
+            <input
+              placeholder="enter tag"
+              type="text"
+              name="tag"
+              value={this.state.tag}
+              onChange={this.handleChange}
+            />
+            <br />
+            <label>Due date </label>
+            <DatePicker
+              placeholderText="Select due date"
+              name="date"
+              value={this.state.date}
+              selected={this.state.date}
+              onChange={this.handleDateChange}
+            />
+            <button type="submit" value="submit">
+              save
+            </button>
+          </form>
+        ) : null}
+      </div>
     )
   }
 }

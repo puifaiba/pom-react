@@ -101,3 +101,9 @@ input[type="password"] {
   padding: 0.4em 1em;
   margin: 0 0.3em 0.3em 0;
 }
+
+.timer-container {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+}

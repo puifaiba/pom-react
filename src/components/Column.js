@@ -30,6 +30,14 @@ const TaskList = styled.div`
 `
 
 class Column extends Component {
+  state = {
+    newFormOpen: false,
+  }
+
+  openNewTaskForm = (e) => {
+    this.setState({newFormOpen: !this.state.newFormOpen})
+  }
+
   render() {
     return (
       <Container>
@@ -53,10 +61,19 @@ class Column extends Component {
                 )
               })}
               {provided.placeholder}
+              <button
+                onClick={(e) => {
+                  this.openNewTaskForm()
+                }}
+              >
+                Add Task
+              </button>
               <NewTaskForm
                 addTask={this.props.addTask}
                 user={this.props.user}
                 column={this.props.column}
+                newFormOpen={this.state.newFormOpen}
+                onClick={this.openNewTaskForm}
               />
             </TaskList>
           )}

@@ -93,17 +93,6 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route
-            exact
-            path="/timer"
-            render={(props) => (
-              <Timer
-                {...props}
-                loggedInStatus={this.state.isLoggedIn}
-                user={this.state.user}
-              />
-            )}
-          /> */}
           <Route
             exact
             path="/chats"

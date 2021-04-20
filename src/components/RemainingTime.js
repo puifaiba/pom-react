@@ -16,9 +16,11 @@ const RemainingTime = ({
 
   return (
     <div className="remaining-time-container">
-      <div className="timer-label">{timerLabel}</div>
+      <div className="timer-label">{timerLabel} Time Remaining</div>
       <div className="remaining-time">{formattedRemainingTime}</div>
-      <button onClick={handleStartStopClick}>{startStopButtonLabel}</button>
+      <button className="reset-button" onClick={handleStartStopClick}>
+        {startStopButtonLabel}
+      </button>
     </div>
   )
 }

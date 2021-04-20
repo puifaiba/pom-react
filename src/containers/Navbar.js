@@ -22,9 +22,6 @@ const Navbar = (props) => {
           <Link to="/tasks" className="link">
             Tasks
           </Link>
-          {/* <Link to="/timer" className="link">
-            Timer
-          </Link> */}
           <Link to="/stats" className="link">
             Stats
           </Link>
