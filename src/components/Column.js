@@ -30,16 +30,6 @@ const TaskList = styled.div`
 `
 
 class Column extends Component {
-  // shouldComponentUpdate(nextProps) {
-  //   return this.props.tasks !== nextProps.tasks
-  // }
-
-  // componentDidUpdate(prevProps, nextProps) {
-  //   if (prevProps.tasks !== this.props.tasks) {
-  //     this.setState({tasks: this.props.tasks})
-  //   }
-  // }
-
   render() {
     return (
       <Container>

@@ -93,15 +93,28 @@ class Project extends Component {
   }
 
   addTask = (task) => {
-    axios.post(`${API_ROOT}/tasks/`, {task}).then((res) => console.log(res))
+    axios.post(`${API_ROOT}/tasks/`, {task}).then((res) => {
+      console.log(res.data)
+    })
 
-    this.setState((prevState) => ({
-      tasks: [...prevState.tasks, task],
-    }))
+    // returns column where ask was added
+    const newTask = [...this.state.columns].map((column) => {
+      if (column.id === task.column_id) {
+        return {
+          ...column,
+          tasks: [...column.tasks, task],
+        }
+      }
+      return {...column, tasks: column.tasks}
+    })
+
+    this.setState((prevState) => {
+      return {columns: newTask}
+    })
   }
 
-  handleUpdate = (event) => {
-    console.log(event)
+  handleUpdate = (task, event) => {
+    event.preventDefault()
   }
 
   handleDelete = (task, event) => {
@@ -109,7 +122,9 @@ class Project extends Component {
     axios.delete(`${API_ROOT}/tasks/${task.id}`).then((res) => {
       console.log(res.data)
     })
-    const newTasks = [...this.state.columns].map((column) => {
+
+    // iterates through each column to find
+    const newColumns = [...this.state.columns].map((column) => {
       if (column.tasks.includes(task)) {
         return {
           ...column,
@@ -119,21 +134,9 @@ class Project extends Component {
       return {...column, tasks: column.tasks}
     })
     this.setState((prevState) => {
-      return {columns: newTasks}
+      return {columns: newColumns}
     })
   }
-
-  // handleStateChange = (value) => {
-  //   let tasks = this.state.tasks
-  //   tasks.push(value)
-  //   this.setState({tasks: tasks})
-  // }
-
-  // componentDidUpdate(prevState) {
-  //   if (prevState.tasks !== this.state.tasks) {
-  //     this.setState({tasks: this.state.tasks})
-  //   }
-  // }
 
   render() {
     return (

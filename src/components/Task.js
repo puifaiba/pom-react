@@ -29,9 +29,13 @@ class Task extends Component {
           >
             {this.props.task.title}
             <div>
-              {/* <button onClick={this.props.handleUpdate} type="submit">
+              <button
+                onClick={this.props.handleUpdate.bind(this, this.props.task)}
+                type="submit"
+                value="update"
+              >
                 Edit
-              </button> */}
+              </button>
               <button
                 onClick={this.props.handleDelete.bind(this, this.props.task)}
                 type="submit"

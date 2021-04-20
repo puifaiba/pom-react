@@ -64,7 +64,7 @@ class Login extends Component {
     return (
       <div>
         <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="form">
           <input
             placeholder="Enter email"
             type="text"
@@ -79,7 +79,7 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit" className="link">
+          <button placeholder="submit" type="submit">
             Log In
           </button>
           <div>

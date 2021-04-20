@@ -57,6 +57,9 @@ h6,
   text-decoration: none;
 }
 
+.form {
+}
+
 .greeting {
   font-size: 20px;
   margin: 0 2rem 0 45rem;
@@ -64,4 +67,13 @@ h6,
 
 .link {
   float: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgba(102, 171, 140, 1);
+}
+
+.link:hover {
+  transform: translateY(2px);
+  text-decoration: none;
 }
