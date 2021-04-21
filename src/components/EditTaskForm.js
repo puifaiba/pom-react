@@ -49,6 +49,7 @@ class EditTaskForm extends Component {
               name="title"
               value={this.state.title}
               onChange={this.handleChange}
+              className="ui input"
             />
             <br />
             <label>Tag </label>
@@ -58,6 +59,7 @@ class EditTaskForm extends Component {
               name="tag"
               value={this.state.tag}
               onChange={this.handleChange}
+              className="ui input"
             />
             <br />
             <label>Due date </label>

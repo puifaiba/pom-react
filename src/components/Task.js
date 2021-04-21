@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {Draggable} from "react-beautiful-dnd"
 import Timer from "../containers/Timer"
 import EditTaskForm from "../components/EditTaskForm"
+import moment from "moment"
 
 const Container = styled.div`
   border: 1px solid blue;
@@ -12,6 +13,7 @@ const Container = styled.div`
   background-color: ${(props) =>
     props.isDragging ? "powderblue" : "lavender"};
   text-align: left;
+  font-weight: bold;
 `
 const TaskButtons = styled.div`
   text-align: right;
@@ -45,7 +47,14 @@ class Task extends Component {
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            {this.props.task.title}
+            <div className="task-title">{this.props.task.title}</div>
+            <div className="task-tag ui teal small label">
+              {this.props.task.tag}
+            </div>
+            <div className="task-date ui red small label">
+              <i class="calendar check icon"></i>
+              {moment(this.props.task.date).format("MM/DD")}
+            </div>
             <TaskButtons>
               <button
                 onClick={(event) => {

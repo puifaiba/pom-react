@@ -32,7 +32,7 @@ class Project extends Component {
 
     axios.get(`${API_ROOT}/tasks`).then((res) => {
       const tasks = res.data.filter(
-        (task) => task.user_id === this.props.user.id
+        (task) => task.user.id === this.props.user.id
       )
       this.setState({tasks})
     })
@@ -175,12 +175,12 @@ class Project extends Component {
               />
             )
           })}
+
           {/* {this.state.columnOrder.map((columnId) => {
             const column = this.state.columns[columnId]
             const tasks = column.tasks.id.map(
               (taskId) => this.state.tasks[taskId]
             )
-            console.log(column)
 
             return <Column key={column.id} column={column} tasks={tasks} />
           })} */}
