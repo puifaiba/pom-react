@@ -52,52 +52,61 @@ class Project extends Component {
       return
     }
 
-    const start = this.state.columns[source.droppableId]
-    const finish = this.state.columns[destination.droppableId]
+    const start = this.state.columns.filter(
+      (column) => column.value === source.droppableId
+    )[0]
+    const finish = this.state.columns.filter(
+      (column) => column.value === destination.droppableId
+    )[0]
+    // const start = this.state.columns[source.droppableId]
+    // const finish = this.state.columns[destination.droppableId]
+
     if (start === finish) {
-      const newTaskIds = Array.from(start.taskIds)
-      newTaskIds.splice(source.index, 1)
-      newTaskIds.splice(destination.index, 0, draggableId)
+      const newTaskIds = Array.from(start.tasks)
+      const [reorderedTask] = newTaskIds.splice(source.index, 1)
+      newTaskIds.splice(destination.index, 0, reorderedTask)
 
       const newColumn = {
         ...start,
-        taskIds: newTaskIds,
+        tasks: newTaskIds,
+      }
+
+      const newState = [...this.state.columns].map((column) => {
+        if (column.id === newColumn.id) {
+          return {
+            columns: newColumn,
+          }
+        }
+        return {columns: this.state.columns}
+      })
+      this.setState(newState)
+      return
+    } else {
+      const startTasks = Array.from(start.tasks)
+      startTasks.splice(source.index, 1)
+      const newStart = {
+        ...start,
+        tasks: startTasks,
+      }
+
+      const finishTasks = Array.from(finish.tasks)
+      finishTasks.splice(destination.index, 0, draggableId)
+      const newFinish = {
+        ...finish,
+        tasks: finishTasks,
       }
 
       const newState = {
         ...this.state,
         columns: {
           ...this.state.columns,
-          [newColumn.id]: newColumn,
+          [newStart.id]: newStart,
+          [newFinish.id]: newFinish,
         },
       }
       this.setState(newState)
       return
     }
-
-    const startTasks = Array.from(start.tasks)
-    startTasks.splice(source.index, 1)
-    const newStart = {
-      ...start,
-      tasks: startTasks,
-    }
-
-    const finishTasks = Array.from(finish.tasks)
-    finishTasks.splice(destination.index, 0, draggableId)
-    const newFinish = {
-      ...finish,
-      tasks: finishTasks,
-    }
-
-    const newState = {
-      ...this.state,
-      columns: {
-        ...this.state.columns,
-        [newStart.id]: newStart,
-        [newFinish.id]: newFinish,
-      },
-    }
-    this.setState(newState)
   }
 
   addTask = (task) => {

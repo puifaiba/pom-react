@@ -36,10 +36,7 @@ class Task extends Component {
 
   render() {
     return (
-      <Draggable
-        draggableId={toString(this.props.task.id)}
-        index={this.props.index}
-      >
+      <Draggable draggableId={this.props.task.title} index={this.props.index}>
         {(provided, snapshot) => (
           <Container
             {...provided.draggableProps}

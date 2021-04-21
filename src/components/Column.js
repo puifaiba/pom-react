@@ -43,7 +43,7 @@ class Column extends Component {
     return (
       <Container>
         <Title>{this.props.column.label}</Title>
-        <Droppable droppableId={toString(this.props.column.id)}>
+        <Droppable droppableId={this.props.column.value}>
           {(provided, snapshot) => (
             <TaskList
               ref={provided.innerRef}

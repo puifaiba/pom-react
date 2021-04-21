@@ -1,12 +1,12 @@
 import React from "react"
 import NewMessageForm from "./NewMessageForm"
 
-const MessagesContainer = ({chat: {id, name, messages}}) => {
+const MessagesContainer = ({chat: {id, name, messages}, user}) => {
   return (
     <div className="messages-container">
       <h2>{name}</h2>
       <ul>{orderedMessages(messages)}</ul>
-      <NewMessageForm chat_id={id} />
+      <NewMessageForm chat_id={id} user_id={user.id} />
     </div>
   )
 }

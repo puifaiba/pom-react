@@ -8,7 +8,7 @@ const Cable = ({chats, handleReceivedMessage}) => {
         return (
           <ActionCableConsumer
             key={chat.id}
-            channel={{channel: "MessagesChannel", chat: chat.id}}
+            channel={{channel: "MessagesChannel", chat_id: chat.id}}
             onReceived={handleReceivedMessage}
           />
         )
