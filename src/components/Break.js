@@ -10,8 +10,8 @@ const Break = ({
 
   return (
     <div className="break-container">
-      <p className="break-label">BREAK TIMER</p>
-      <p className="break-duration">{breakDurationInMinutes}</p>
+      <div className="break-label">BREAK TIMER</div>
+      <div className="duration">{breakDurationInMinutes}</div>
       <button
         onClick={decrementBreakDurationByOneMinute}
         className="break-increment ui teal basic icon button"

@@ -36,7 +36,7 @@ const Navbar = (props) => {
             onClick={handleLogOutClick}
             className="link ui pink basic big icon button"
           >
-            <i aria-hidden="true" class="sign-out alternate icon"></i>
+            <i aria-hidden="true" class="sign-out icon"></i>
           </Link>
         </div>
       ) : null}

@@ -5,13 +5,13 @@ import Task from "./Task"
 import NewTaskForm from "../components/NewTaskForm"
 
 const Container = styled.div`
-  margin: 10px;
+  margin: 10px auto 10px;
   border: 1px solid blue;
   border-radius: 5px;
-  width: 25rem;
+  width: 28rem;
   display: flex;
   flex-direction: column;
-  background-color: lightsteelblue;
+  background-color: powderblue;
   text-align: right;
 `
 const Title = styled.h3`
@@ -24,7 +24,7 @@ const TaskList = styled.div`
   margin: 0 10px;
   transition: background-color 0.2s ease;
   background-color: ${(props) =>
-    props.isDraggingOver ? "royalblue" : "lightsteelblue"};
+    props.isDraggingOver ? "royalblue" : "powderblue"};
   flex-grow: 1;
   min-height: 40rem;
   border-radius: 5px;
@@ -35,7 +35,7 @@ class Column extends Component {
     newFormOpen: false,
   }
 
-  openNewTaskForm = (e) => {
+  openNewTaskForm = (event) => {
     this.setState({newFormOpen: !this.state.newFormOpen})
   }
 
@@ -63,7 +63,7 @@ class Column extends Component {
               })}
               {provided.placeholder}
               <button
-                onClick={(e) => {
+                onClick={(event) => {
                   this.openNewTaskForm()
                 }}
                 class="ui violet basic icon button"

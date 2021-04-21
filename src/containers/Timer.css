@@ -11,6 +11,7 @@
     rgba(81, 22, 111, 1) 35%,
     rgba(12, 29, 84, 1) 100%
   );
+  opacity: 0.7;
   padding: 0.5rem 0.5rem;
   border-radius: 10px;
   text-align: center;
@@ -20,6 +21,22 @@
   font-size: 8rem;
   margin-bottom: 1rem;
   color: white;
+}
+
+.timer-container {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.duration {
+  font-size: 15px;
+  color: darkturquoise;
+}
+
+.remaining-time {
+  font-size: 25px;
+  color: darkturquoise;
 }
 
 .buttons button {

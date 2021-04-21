@@ -79,8 +79,12 @@ class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit">
-            Log In
+          <button
+            placeholder="submit"
+            type="submit"
+            class="ui green basic icon button"
+          >
+            <i aria-hidden="true" class="sign-in icon"></i>
           </button>
           <div>
             or{" "}

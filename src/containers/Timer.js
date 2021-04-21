@@ -78,7 +78,7 @@ const Timer = (props) => {
             return prevRemainingTime
           }
         })
-      }, 1000)
+      }, 100)
       setIntervalId(newIntervalId)
     }
   }
@@ -97,7 +97,6 @@ const Timer = (props) => {
                 incrementFocusDurationByOneMinute
               }
             />
-            <br />
             <Break
               breakDuration={breakDuration}
               decrementBreakDurationByOneMinute={
@@ -107,13 +106,12 @@ const Timer = (props) => {
                 incrementBreakDurationByOneMinute
               }
             />
-            <br />
             <RemainingTime
               timerLabel={currentIntervalType}
               handleStartStopClick={handleStartStopClick}
               startStopButtonLabel={
                 isStarted ? (
-                  <i aria-hidden="true" class="pause icon"></i>
+                  <i aria-hidden="true" class="stop icon"></i>
                 ) : (
                   <i aria-hidden="true" class="play icon"></i>
                 )

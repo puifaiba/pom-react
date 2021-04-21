@@ -9,8 +9,8 @@ const Focus = ({
   const focusDurationInMinutes = moment.duration(focusDuration, "s").asMinutes()
   return (
     <div className="focus-container">
-      <p className="focus-label">FOCUS TIMER</p>
-      <p className="focus-duration">{focusDurationInMinutes}</p>
+      <div className="focus-label">FOCUS TIMER</div>
+      <div className="duration">{focusDurationInMinutes}</div>
       <button
         onClick={decrementFocusDurationByOneMinute}
         className="focus-increment ui teal basic icon button"

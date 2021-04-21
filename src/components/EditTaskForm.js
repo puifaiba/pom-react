@@ -2,11 +2,11 @@ import React, {Component} from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 
-class NewTaskForm extends Component {
+class EditTaskForm extends Component {
   state = {
     date: new Date(),
-    tag: "",
-    title: "",
+    tag: this.props.task.tag || "",
+    title: this.props.task.title,
   }
 
   handleChange = (event) => {
@@ -15,21 +15,23 @@ class NewTaskForm extends Component {
       [name]: value,
     })
   }
+
   handleDateChange = (date) => {
     this.setState({date: date})
   }
 
-  handleAddTask = (event) => {
+  handleEditTask = (event) => {
     event.preventDefault()
-    const newTask = {
-      column_id: this.props.column.id,
+    const editedTask = {
+      id: this.props.task.id,
+      column_id: this.props.task.column.id,
       date: this.state.date,
       tag: this.state.tag,
       title: this.state.title,
-      user_id: this.props.user.id,
+      user_id: this.props.task.user.id,
     }
     if (this.state.title !== "") {
-      this.props.addTask(newTask)
+      this.props.handleUpdate(editedTask, event)
     }
     this.setState({title: "", tag: "", date: new Date()})
     this.props.onClick && this.props.onClick(event)
@@ -37,9 +39,9 @@ class NewTaskForm extends Component {
 
   render() {
     return (
-      <div className="new-task-form">
-        {this.props.newFormOpen ? (
-          <form onSubmit={(event) => this.handleAddTask(event)}>
+      <div className="edit-task-form">
+        {this.props.editFormOpen ? (
+          <form onSubmit={(event) => this.handleEditTask(event)}>
             <label>Title </label>
             <input
               placeholder="enter task"
@@ -81,4 +83,4 @@ class NewTaskForm extends Component {
   }
 }
 
-export default NewTaskForm
+export default EditTaskForm

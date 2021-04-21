@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import styled from "styled-components"
 import {Draggable} from "react-beautiful-dnd"
 import Timer from "../containers/Timer"
+import EditTaskForm from "../components/EditTaskForm"
 
 const Container = styled.div`
   border: 1px solid blue;
@@ -20,10 +21,15 @@ const TaskButtons = styled.div`
 class Task extends Component {
   state = {
     timerShown: false,
+    editFormOpen: false,
   }
 
-  showTimer = (e) => {
+  showTimer = (event) => {
     this.setState({timerShown: !this.state.timerShown})
+  }
+
+  openEditTaskForm = (event) => {
+    this.setState({editFormOpen: !this.state.editFormOpen})
   }
 
   render() {
@@ -42,7 +48,9 @@ class Task extends Component {
             {this.props.task.title}
             <TaskButtons>
               <button
-                onClick={this.props.handleUpdate.bind(this, this.props.task)}
+                onClick={(event) => {
+                  this.openEditTaskForm()
+                }}
                 type="submit"
                 value="update"
                 class="ui violet basic icon button"
@@ -67,6 +75,14 @@ class Task extends Component {
               </button>
             </TaskButtons>
             <Timer timerShown={this.state.timerShown} />
+            <EditTaskForm
+              handleUpdate={this.props.handleUpdate}
+              user={this.props.user}
+              column={this.props.column}
+              editFormOpen={this.state.editFormOpen}
+              onClick={this.openEditTaskForm}
+              task={this.props.task}
+            />
           </Container>
         )}
       </Draggable>
