@@ -150,4 +150,5 @@ select {
 .new-chat-form,
 .new-message-form {
   margin-left: 2em;
+  font-size: 13px;
 }

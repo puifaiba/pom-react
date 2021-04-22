@@ -7,22 +7,22 @@ const Container = styled.div`
   border: 1px solid #fffacd;
   border-radius: 3px;
   box-shadow: 3px 3px 5px black;
-  width: calc(61% - 1px);
-  height: 92%;
+  width: calc(95% - 1px);
+  min-height: 50%;
   text-align: left;
   margin: 25px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: normal;
   float: left;
   position: relative;
-  color: midnightblue;
+  color: gray;
   background-color: lavender;
 `
 
 const Title = styled.h3`
-  padding: 10px;
+  padding: 5px;
   text-align: left;
-  margin: 10px;
+  margin: 5px;
   color: midnightblue;
 `
 

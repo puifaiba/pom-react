@@ -21,11 +21,12 @@ const Container = styled.div`
   text-align: left;
 `
 const Chatlist = styled.div`
-  padding: 10px 5px;
+  padding: 10px 5px 10px;
+  margin-bottom: 10px;
   border: 1px solid #fffacd;
   border-radius: 3px;
   box-shadow: 3px 3px 5px black;
-  width: calc(30% - 1px);
+  width: calc(95% - 1px);
   height: 92%;
   text-align: left;
   margin: 25px;
@@ -33,21 +34,22 @@ const Chatlist = styled.div`
   font-weight: bold;
   float: left;
   position: relative;
-  color: #fffacd;
-  background-color: royalblue;
+  color: darkslategray;
+  background-color: #e2e0e5;
 `
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
-  color: #fffacd;
+  color: darkslategray;
 `
 
 const Chats = styled.div`
-  padding: 10px 5px;
+  padding: 1px 1px;
   text-align: left;
-  margin: 10px;
+  margin: 1px;
   font-weight: bold;
+  display: flex;
 `
 
 class ChatList extends Component {
@@ -97,16 +99,22 @@ class ChatList extends Component {
           />
         ) : null}
         <Chatlist className="chatlist">
-          <Title>CHATS</Title>
+          <Title>MESSAGE BOARD</Title>
           <div className="chats">{mapChats(chats, this.handleClick)}</div>
           <NewChatForm />
+          {activeChat ? (
+            <MessagesContainer
+              chat={findActiveChat(chats, activeChat)}
+              user={this.props.user}
+            />
+          ) : null}
         </Chatlist>
-        {activeChat ? (
+        {/* {activeChat ? (
           <MessagesContainer
             chat={findActiveChat(chats, activeChat)}
             user={this.props.user}
           />
-        ) : null}
+        ) : null} */}
       </Container>
     )
   }
