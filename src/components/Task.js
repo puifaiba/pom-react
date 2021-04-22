@@ -49,7 +49,7 @@ class Task extends Component {
               {this.props.task.tag}
             </div>
             <div className="task-date ui red small label">
-              <i class="calendar check icon"></i>
+              <i className="calendar check icon"></i>
               {moment(this.props.task.date).format("MM/DD")}
             </div>
             <TaskButtons>
@@ -59,25 +59,25 @@ class Task extends Component {
                 }}
                 type="submit"
                 value="update"
-                class="ui violet basic icon button"
+                className="ui violet basic icon button"
               >
-                <i aria-hidden="true" class="pencil icon"></i>
+                <i aria-hidden="true" className="pencil icon"></i>
               </button>
               <button
                 onClick={this.props.handleDelete.bind(this, this.props.task)}
                 type="submit"
                 value="delete"
-                class="ui violet basic icon button"
+                className="ui violet basic icon button"
               >
-                <i aria-hidden="true" class="trash icon"></i>
+                <i aria-hidden="true" className="trash icon"></i>
               </button>
               <button
                 onClick={(e) => {
                   this.showTimer()
                 }}
-                class="ui violet basic icon button"
+                className="ui violet basic icon button"
               >
-                <i aria-hidden="true" class="clock icon"></i>
+                <i aria-hidden="true" className="clock icon"></i>
               </button>
             </TaskButtons>
             <Timer timerShown={this.state.timerShown} />

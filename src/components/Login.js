@@ -62,8 +62,8 @@ class Login extends Component {
     const {email, password} = this.state
 
     return (
-      <div>
-        <h1>Log In</h1>
+      <div className="login-container">
+        <div className="login">Log In</div>
         <form onSubmit={this.handleSubmit} className="form ui-centered">
           <input
             placeholder="Enter email"
@@ -82,10 +82,11 @@ class Login extends Component {
           <button
             placeholder="submit"
             type="submit"
-            class="ui green basic icon button"
+            className="ui green basic icon button"
           >
-            <i aria-hidden="true" class="sign-in icon"></i>
+            <i aria-hidden="true" className="sign-in icon"></i>
           </button>
+          <br />
           <div>
             or{" "}
             <Link to="/signup" className="link">

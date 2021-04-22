@@ -81,7 +81,7 @@ class NewTaskForm extends Component {
             <button
               type="submit"
               value="submit"
-              class="ui violet basic icon button"
+              className="ui violet basic icon button"
             >
               <i aria-hidden="true" class="save icon"></i>
             </button>

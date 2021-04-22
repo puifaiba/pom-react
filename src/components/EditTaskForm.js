@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import moment from "moment"
 
 class EditTaskForm extends Component {
   state = {
@@ -84,7 +83,7 @@ class EditTaskForm extends Component {
             <button
               type="submit"
               value="submit"
-              class="ui violet basic icon button"
+              className="ui violet basic icon button"
             >
               <i aria-hidden="true" class="save icon"></i>
             </button>

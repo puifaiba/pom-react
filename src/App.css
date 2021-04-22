@@ -16,18 +16,22 @@
   font-size: 16px;
 }
 
-.home {
-  display: inline-block;
-  padding: 80px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 25px;
-  color: rgb(103, 207, 160);
+.home:hover {
+  transform: translateY(2px);
   text-decoration: none;
 }
 
-.home:hover {
-  transform: translateY(2px);
+.signup,
+.login,
+.home {
+  text-align: center;
+  display: inline-block;
+  padding: 80px;
+  margin-top: 10%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 35px;
+  color: rgb(103, 207, 160);
   text-decoration: none;
 }
 
@@ -110,7 +114,7 @@ select {
   font-family: "Work Sans", sans-serif;
   box-sizing: border-box;
   padding: 0.4em 1em;
-  margin: 0 0.3em 0.3em 0;
+  margin: 0.3em 0.3em 0.3em 0.3em;
 }
 
 .timer-container {
@@ -128,4 +132,9 @@ select {
 .edit-task-form {
   margin-top: 5px;
   text-align: right;
+}
+
+.new-chat-form,
+.new-message-form {
+  margin-left: 2em;
 }

@@ -79,9 +79,9 @@ class Signup extends Component {
     } = this.state
 
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className="signup-container">
+        <div className="signup">Sign Up</div>
+        <form onSubmit={this.handleSubmit} className="form ui-centered">
           <input
             placeholder="email"
             type="text"
@@ -118,8 +118,12 @@ class Signup extends Component {
             value={last_name}
             onChange={this.handleChange}
           />
-          <button placeholder="submit" type="submit">
-            Sign Up
+          <button
+            placeholder="submit"
+            type="submit"
+            className="ui violet basic icon button"
+          >
+            <i aria-hidden="true" className="sign-in icon"></i>
           </button>
         </form>
         <div>{this.state.errors ? this.handleErrors : null}</div>

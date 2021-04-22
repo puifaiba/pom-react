@@ -111,9 +111,9 @@ const Timer = (props) => {
               handleStartStopClick={handleStartStopClick}
               startStopButtonLabel={
                 isStarted ? (
-                  <i aria-hidden="true" class="stop icon"></i>
+                  <i aria-hidden="true" className="stop icon"></i>
                 ) : (
-                  <i aria-hidden="true" class="play icon"></i>
+                  <i aria-hidden="true" className="play icon"></i>
                 )
               }
               remainingTime={remainingTime}
@@ -122,7 +122,7 @@ const Timer = (props) => {
               className="reset-button ui teal basic icon button"
               onClick={handleResetButtonClick}
             >
-              <i aria-hidden="true" class="repeat icon"></i>
+              <i aria-hidden="true" className="repeat icon"></i>
             </button>
             <audio id="bark" ref={audioElement}>
               <source

@@ -66,9 +66,9 @@ class Column extends Component {
                 onClick={(event) => {
                   this.openNewTaskForm()
                 }}
-                class="ui violet basic icon button"
+                className="ui violet basic icon button"
               >
-                <i aria-hidden="true" class="plus icon"></i>
+                <i aria-hidden="true" className="plus icon"></i>
               </button>
               <NewTaskForm
                 addTask={this.props.addTask}

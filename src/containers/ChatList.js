@@ -9,7 +9,8 @@ import MessagesContainer from "../components/MessagesContainer"
 import Cable from "../components/Cable"
 
 const Container = styled.div`
-  margin: 10px auto 10px;
+  margin: 5px auto 5px;
+  padding: 10px 5px;
   border: 1px solid blue;
   border-radius: 5px;
   width: 80rem;
@@ -18,10 +19,31 @@ const Container = styled.div`
   background-color: powderblue;
   text-align: left;
 `
+const Chatlist = styled.div`
+  padding: 10px 5px;
+  border: 2px solid blue;
+  width: calc(30% - 1px);
+  height: 92%;
+  text-align: left;
+  margin: 25px;
+  font-size: 1.33rem;
+  font-weight: bold;
+  float: left;
+  position: relative;
+`
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
+`
+
+const Chats = styled.div`
+  padding: 10px 5px;
+  text-align: left;
+  margin: 10px;
+  font-weight: bold;
+  float: left;
+  position: relative;
 `
 
 class ChatList extends Component {
@@ -70,9 +92,11 @@ class ChatList extends Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        <Title>CHATS</Title>
-        <div>{mapChats(chats, this.handleClick)}</div>
-        <NewChatForm />
+        <Chatlist className="chatlist">
+          <Title>CHATS</Title>
+          <NewChatForm />
+          <div className="chats">{mapChats(chats, this.handleClick)}</div>
+        </Chatlist>
         {activeChat ? (
           <MessagesContainer
             chat={findActiveChat(chats, activeChat)}
@@ -93,9 +117,9 @@ const findActiveChat = (chats, activeChat) => {
 const mapChats = (chats, handleClick) => {
   return chats.map((chat) => {
     return (
-      <div key={chat.id} onClick={() => handleClick(chat.id)}>
-        <div>{chat.name} Class</div>
-      </div>
+      <Chats key={chat.id} onClick={() => handleClick(chat.id)}>
+        <div>{chat.name}</div>
+      </Chats>
     )
   })
 }

@@ -45,7 +45,13 @@ class NewMessageForm extends Component {
             onChange={this.handleChange}
             className="ui input"
           />
-          <input type="submit" value="submit" />
+          <button
+            type="submit"
+            value="submit"
+            className="ui violet basic icon button"
+          >
+            <i aria-hidden="true" class="plus icon"></i>
+          </button>
         </form>
       </div>
     )
