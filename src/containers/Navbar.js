@@ -34,7 +34,7 @@ const Navbar = (props) => {
           <Link
             to="/logout"
             onClick={handleLogOutClick}
-            className="link ui pink basic big icon button"
+            className="link ui red basic big icon button"
           >
             <i aria-hidden="true" className="sign-out icon"></i>
           </Link>

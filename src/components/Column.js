@@ -5,27 +5,28 @@ import Task from "./Task"
 import NewTaskForm from "../components/NewTaskForm"
 
 const Container = styled.div`
-  margin: 10px auto 10px;
-  border: 1px solid blue;
+  margin: 5px 10px 10px;
+  border: 1px solid #fffacd;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px dimgray;
+  box-shadow: 3px 3px 5px black;
   width: 26rem;
   display: flex;
   flex-direction: column;
-  background-color: lightsteelblue;
+  background-color: midnightblue;
   text-align: right;
 `
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
+  color: #fffacd;
 `
 const TaskList = styled.div`
   padding: 8px;
   margin: 0 10px;
   transition: background-color 0.2s ease;
   background-color: ${(props) =>
-    props.isDraggingOver ? "powderblue" : "lightsteelblue"};
+    props.isDraggingOver ? "#fffacd" : "midnightblue"};
   flex-grow: 1;
   min-height: 40rem;
   border-radius: 5px;

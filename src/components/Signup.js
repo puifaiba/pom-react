@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import axios from "axios"
+import {Link} from "react-router-dom"
 
 const USERS_URL = "http://localhost:3001/users"
 
@@ -125,6 +126,12 @@ class Signup extends Component {
           >
             <i aria-hidden="true" className="sign-in icon"></i>
           </button>
+          <div>
+            or{" "}
+            <Link to="/login" className="link">
+              Log In
+            </Link>
+          </div>
         </form>
         <div>{this.state.errors ? this.handleErrors : null}</div>
       </div>

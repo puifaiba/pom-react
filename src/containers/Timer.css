@@ -11,32 +11,33 @@
     rgba(81, 22, 111, 1) 35%,
     rgba(12, 29, 84, 1) 100%
   );
-  opacity: 0.7;
+  opacity: 0.9;
   padding: 0.5rem 0.5rem;
-  border-radius: 10px;
+  border-radius: 3px;
   text-align: center;
+  color: #00c9b8;
 }
 
 .time {
-  font-size: 8rem;
+  font-size: 9rem;
   margin-bottom: 1rem;
   color: white;
 }
 
 .timer-container {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Fresca", sans-serif;
   font-weight: 900;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .duration {
   font-size: 15px;
-  color: darkturquoise;
+  color: green;
 }
 
 .remaining-time {
   font-size: 25px;
-  color: darkturquoise;
+  color: red;
 }
 
 .buttons button {
@@ -53,18 +54,4 @@
 
 .buttons button:hover {
   transform: translateY(-2px);
-}
-
-.start {
-  background: #3ed927;
-  color: white;
-}
-
-.pause {
-  background: #e4e446;
-}
-
-.reset {
-  background: #fd7171;
-  color: white;
 }

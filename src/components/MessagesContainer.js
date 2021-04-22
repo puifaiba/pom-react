@@ -3,10 +3,10 @@ import NewMessageForm from "./NewMessageForm"
 import styled from "styled-components"
 
 const Container = styled.div`
-  padding: 10px 5px;
-  border: 2px solid blue;
+  padding: 10px 10px;
+  border: 1px solid #fffacd;
   border-radius: 3px;
-  box-shadow: 3px 3px 5px gray;
+  box-shadow: 3px 3px 5px black;
   width: calc(61% - 1px);
   height: 92%;
   text-align: left;
@@ -15,7 +15,7 @@ const Container = styled.div`
   font-weight: bold;
   float: left;
   position: relative;
-  color: rosybrown;
+  color: midnightblue;
   background-color: lavender;
 `
 
@@ -23,7 +23,7 @@ const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
-  color: black;
+  color: midnightblue;
 `
 
 const MessagesContainer = ({chat: {id, name, messages}, user}) => {
@@ -35,6 +35,7 @@ const MessagesContainer = ({chat: {id, name, messages}, user}) => {
       return (
         <div key={message.id}>
           <div>{message.content}</div>
+          <br />
         </div>
       )
     })

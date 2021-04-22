@@ -11,20 +11,20 @@ import Cable from "../components/Cable"
 const Container = styled.div`
   margin: 5px auto 5px;
   padding: 10px 5px;
-  border: 1px solid blue;
+  border: 1px solid #fffacd;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px gray;
+  box-shadow: 3px 3px 5px black;
   width: 80rem;
   height: 50rem;
   display: inline-block;
-  background-color: lightsteelblue;
+  background-color: midnightblue;
   text-align: left;
 `
 const Chatlist = styled.div`
   padding: 10px 5px;
-  border: 2px solid blue;
+  border: 1px solid #fffacd;
   border-radius: 3px;
-  box-shadow: 3px 3px 5px dimgray;
+  box-shadow: 3px 3px 5px black;
   width: calc(30% - 1px);
   height: 92%;
   text-align: left;
@@ -33,14 +33,14 @@ const Chatlist = styled.div`
   font-weight: bold;
   float: left;
   position: relative;
-  color: darkslategray;
-  background-color: lavender;
+  color: #fffacd;
+  background-color: royalblue;
 `
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
-  color: black;
+  color: #fffacd;
 `
 
 const Chats = styled.div`

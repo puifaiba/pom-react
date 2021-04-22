@@ -6,20 +6,19 @@ import EditTaskForm from "../components/EditTaskForm"
 import moment from "moment"
 
 const Container = styled.div`
-  border: 1px solid blue;
+  border: 1px solid #fffacd;
   border-radius: 2px;
   padding: 8px 12px;
   margin-bottom: 8px;
   background-color: ${(props) =>
-    props.isDragging ? "powderblue" : "lavender"};
+    props.isDragging ? "cornflowerblue" : "#e2e0e5"};
   text-align: left;
-  font-weight: bold;
-  box-shadow: 3px 3px 5px gray;
+  box-shadow: 3px 3px 5px black;
   color: darkslategray;
 `
 const TaskButtons = styled.div`
   text-align: right;
-  padding: 8px;
+  padding: 3px;
 `
 
 class Task extends Component {
