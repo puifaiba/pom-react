@@ -22,18 +22,20 @@ class Project extends Component {
       const columns = res.data.map((column) => {
         return {
           ...column,
-          tasks: column.tasks.filter(
-            (task) => task.user.id === this.props.user.id
-          ),
+          tasks: column.tasks,
+          // tasks: column.tasks.filter(
+          //   (task) => task.user.id === this.props.user.id
+          // ),
         }
       })
       this.setState({columns})
     })
 
     axios.get(`${API_ROOT}/tasks`).then((res) => {
-      const tasks = res.data.filter(
-        (task) => task.user.id === this.props.user.id
-      )
+      // const tasks = res.data.filter(
+      //   (task) => task.user.id === this.props.user.id
+      // )
+      const tasks = res.data
       this.setState({tasks})
     })
   }
@@ -58,8 +60,6 @@ class Project extends Component {
     const finish = this.state.columns.filter(
       (column) => column.value === destination.droppableId
     )[0]
-    // const start = this.state.columns[source.droppableId]
-    // const finish = this.state.columns[destination.droppableId]
 
     if (start === finish) {
       const newTaskIds = Array.from(start.tasks)
@@ -83,39 +83,43 @@ class Project extends Component {
       })
 
       // axios
-      //   .post(`${API_ROOT}/columns/${newColumn.id}`, {newColumn})
+      //   .put(`${API_ROOT}/columns/${newColumn.id}`, newColumn)
       //   .then((res) => {
       //     console.log(res.data)
       //   })
     } else {
       const startTasks = Array.from(start.tasks)
-      startTasks.splice(source.index, 1)
+      const [movedTask] = startTasks.splice(source.index, 1)
+
       const newStart = {
         ...start,
         tasks: startTasks,
       }
 
       const finishTasks = Array.from(finish.tasks)
-      finishTasks.splice(destination.index, 0, draggableId)
+      finishTasks.splice(destination.index, 0, movedTask)
+
       const newFinish = {
         ...finish,
         tasks: finishTasks,
       }
 
-      const newState = {
-        ...this.state,
-        columns: {
-          ...this.state.columns,
-          [newStart.id]: newStart,
-          [newFinish.id]: newFinish,
-        },
-      }
-      this.setState((prevState, props) => {
-        return newState
+      const newState = [...this.state.columns].map((column) => {
+        switch (column.id) {
+          case newStart.id:
+            return newStart
+            break
+          case newFinish.id:
+            return newFinish
+            break
+          default:
+            return {...column, tasks: column.tasks}
+        }
       })
-      // this.setState((prevState, props) => {
-      //   return {columns: newTask}
-      // })
+
+      this.setState((prevState, props) => {
+        return {columns: newState}
+      })
       return
     }
   }

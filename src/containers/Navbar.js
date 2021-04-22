@@ -22,9 +22,9 @@ const Navbar = (props) => {
           <Link to="/tasks" className="link">
             Tasks
           </Link>
-          <Link to="/stats" className="link">
+          {/* <Link to="/stats" className="link">
             Stats
-          </Link>
+          </Link> */}
           <Link to="/chats" className="link">
             Messages
           </Link>
