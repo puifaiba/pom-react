@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import axios from "axios"
 import {ActionCableConsumer} from "react-actioncable-provider"
 
-import {API_ROOT, API_WS_ROOT} from "../constants/index"
+import {API_ROOT} from "../constants/index"
 import NewChatForm from "../components/NewChatForm"
 import MessagesContainer from "../components/MessagesContainer"
 import Cable from "../components/Cable"
@@ -54,7 +54,7 @@ class ChatList extends Component {
           />
         ) : null}
         <h2>Chats</h2>
-        <ul>{mapChats(chats, this.handleClick)}</ul>
+        <div>{mapChats(chats, this.handleClick)}</div>
         <NewChatForm />
         {activeChat ? (
           <MessagesContainer
@@ -76,9 +76,9 @@ const findActiveChat = (chats, activeChat) => {
 const mapChats = (chats, handleClick) => {
   return chats.map((chat) => {
     return (
-      <li key={chat.id} onClick={() => handleClick(chat.id)}>
+      <div key={chat.id} onClick={() => handleClick(chat.id)}>
         Chat with {chat.name}
-      </li>
+      </div>
     )
   })
 }

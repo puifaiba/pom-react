@@ -73,14 +73,20 @@ class Project extends Component {
 
       const newState = [...this.state.columns].map((column) => {
         if (column.id === newColumn.id) {
-          return {
-            columns: newColumn,
-          }
+          return newColumn
         }
-        return {columns: this.state.columns}
+        return {...column, tasks: column.tasks}
       })
-      this.setState(newState)
-      return
+
+      this.setState((prevState, props) => {
+        return {columns: newState}
+      })
+
+      // axios
+      //   .post(`${API_ROOT}/columns/${newColumn.id}`, {newColumn})
+      //   .then((res) => {
+      //     console.log(res.data)
+      //   })
     } else {
       const startTasks = Array.from(start.tasks)
       startTasks.splice(source.index, 1)
@@ -104,7 +110,12 @@ class Project extends Component {
           [newFinish.id]: newFinish,
         },
       }
-      this.setState(newState)
+      this.setState((prevState, props) => {
+        return newState
+      })
+      // this.setState((prevState, props) => {
+      //   return {columns: newTask}
+      // })
       return
     }
   }
