@@ -14,6 +14,8 @@ const Container = styled.div`
     props.isDragging ? "powderblue" : "lavender"};
   text-align: left;
   font-weight: bold;
+  box-shadow: 3px 3px 5px gray;
+  color: darkslategray;
 `
 const TaskButtons = styled.div`
   text-align: right;

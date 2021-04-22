@@ -5,20 +5,25 @@ import styled from "styled-components"
 const Container = styled.div`
   padding: 10px 5px;
   border: 2px solid blue;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px gray;
   width: calc(61% - 1px);
   height: 92%;
   text-align: left;
   margin: 25px;
-  font-size: 1.33rem;
+  font-size: 1.2rem;
   font-weight: bold;
   float: left;
   position: relative;
+  color: rosybrown;
+  background-color: lavender;
 `
 
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
+  color: black;
 `
 
 const MessagesContainer = ({chat: {id, name, messages}, user}) => {
@@ -29,7 +34,6 @@ const MessagesContainer = ({chat: {id, name, messages}, user}) => {
     return sortedMessages.map((message) => {
       return (
         <div key={message.id}>
-          <div>{user.first_name}</div>
           <div>{message.content}</div>
         </div>
       )

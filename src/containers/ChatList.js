@@ -13,28 +13,34 @@ const Container = styled.div`
   padding: 10px 5px;
   border: 1px solid blue;
   border-radius: 5px;
+  box-shadow: 3px 3px 5px gray;
   width: 80rem;
   height: 50rem;
   display: inline-block;
-  background-color: powderblue;
+  background-color: lightsteelblue;
   text-align: left;
 `
 const Chatlist = styled.div`
   padding: 10px 5px;
   border: 2px solid blue;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px dimgray;
   width: calc(30% - 1px);
   height: 92%;
   text-align: left;
   margin: 25px;
-  font-size: 1.33rem;
+  font-size: 1.2rem;
   font-weight: bold;
   float: left;
   position: relative;
+  color: darkslategray;
+  background-color: lavender;
 `
 const Title = styled.h3`
   padding: 10px;
   text-align: left;
   margin: 10px;
+  color: black;
 `
 
 const Chats = styled.div`
@@ -42,8 +48,6 @@ const Chats = styled.div`
   text-align: left;
   margin: 10px;
   font-weight: bold;
-  float: left;
-  position: relative;
 `
 
 class ChatList extends Component {
@@ -94,8 +98,8 @@ class ChatList extends Component {
         ) : null}
         <Chatlist className="chatlist">
           <Title>CHATS</Title>
-          <NewChatForm />
           <div className="chats">{mapChats(chats, this.handleClick)}</div>
+          <NewChatForm />
         </Chatlist>
         {activeChat ? (
           <MessagesContainer

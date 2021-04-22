@@ -8,10 +8,11 @@ const Container = styled.div`
   margin: 10px auto 10px;
   border: 1px solid blue;
   border-radius: 5px;
+  box-shadow: 3px 3px 5px dimgray;
   width: 26rem;
   display: flex;
   flex-direction: column;
-  background-color: powderblue;
+  background-color: lightsteelblue;
   text-align: right;
 `
 const Title = styled.h3`
@@ -24,7 +25,7 @@ const TaskList = styled.div`
   margin: 0 10px;
   transition: background-color 0.2s ease;
   background-color: ${(props) =>
-    props.isDraggingOver ? "royalblue" : "powderblue"};
+    props.isDraggingOver ? "powderblue" : "lightsteelblue"};
   flex-grow: 1;
   min-height: 40rem;
   border-radius: 5px;
