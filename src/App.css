@@ -42,6 +42,8 @@ h6,
   font-weight: 900;
   font-size: 50px;
   color: #fa7c92;
+  text-align: left;
+  margin-left: 1em;
 }
 
 .navbar {
@@ -102,7 +104,8 @@ button:hover {
 }
 
 form input[type="text"],
-input[type="password"] {
+input[type="password"],
+select {
   max-width: 200px;
   font-family: "Work Sans", sans-serif;
   box-sizing: border-box;

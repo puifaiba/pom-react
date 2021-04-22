@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import moment from "moment"
 
 class EditTaskForm extends Component {
   state = {
@@ -53,14 +54,23 @@ class EditTaskForm extends Component {
             />
             <br />
             <label>Tag </label>
-            <input
+            <select
+              className="ui search dropdown"
               placeholder="enter tag"
               type="text"
               name="tag"
               value={this.state.tag}
               onChange={this.handleChange}
-              className="ui input"
-            />
+            >
+              <option value="">select subject</option>
+              <option value="Art">Art</option>
+              <option value="English">English</option>
+              <option value="Geography">Geography</option>
+              <option value="Math">Math</option>
+              <option value="Music">Music</option>
+              <option value="Reading">Reading</option>
+              <option value="Science">Science</option>
+            </select>
             <br />
             <label>Due date </label>
             <DatePicker

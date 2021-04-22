@@ -57,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        {this.state.isLoggedIn ? <Header /> : null}
         <Navbar
           loggedInStatus={this.state.isLoggedIn}
           handleLogout={this.handleLogout}

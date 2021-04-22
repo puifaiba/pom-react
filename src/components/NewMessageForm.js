@@ -43,6 +43,7 @@ class NewMessageForm extends Component {
             type="text"
             value={this.state.content}
             onChange={this.handleChange}
+            className="ui input"
           />
           <input type="submit" value="submit" />
         </form>

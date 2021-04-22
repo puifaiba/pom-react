@@ -1,11 +1,28 @@
 import React, {Component} from "react"
 import axios from "axios"
 import {ActionCableConsumer} from "react-actioncable-provider"
+import styled from "styled-components"
 
 import {API_ROOT} from "../constants/index"
 import NewChatForm from "../components/NewChatForm"
 import MessagesContainer from "../components/MessagesContainer"
 import Cable from "../components/Cable"
+
+const Container = styled.div`
+  margin: 10px auto 10px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  width: 80rem;
+  height: 50rem;
+  display: inline-block;
+  background-color: powderblue;
+  text-align: left;
+`
+const Title = styled.h3`
+  padding: 10px;
+  text-align: left;
+  margin: 10px;
+`
 
 class ChatList extends Component {
   state = {
@@ -42,7 +59,7 @@ class ChatList extends Component {
   render() {
     const {chats, activeChat} = this.state
     return (
-      <div className="chatlist-container">
+      <Container className="chatlist-container">
         <ActionCableConsumer
           channel={{channel: "ChatsChannel"}}
           onReceived={this.handleReceivedChat}
@@ -53,7 +70,7 @@ class ChatList extends Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        <h2>Chats</h2>
+        <Title>CHATS</Title>
         <div>{mapChats(chats, this.handleClick)}</div>
         <NewChatForm />
         {activeChat ? (
@@ -62,7 +79,7 @@ class ChatList extends Component {
             user={this.props.user}
           />
         ) : null}
-      </div>
+      </Container>
     )
   }
 }
@@ -77,7 +94,7 @@ const mapChats = (chats, handleClick) => {
   return chats.map((chat) => {
     return (
       <div key={chat.id} onClick={() => handleClick(chat.id)}>
-        Chat with {chat.name}
+        <div>{chat.name} Class</div>
       </div>
     )
   })
